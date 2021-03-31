@@ -8,6 +8,9 @@ $(document).ready(function () {
   scrollToTop();
   pageScroll();
   wrapImageWithFancyBox();
+  hljs.initLineNumbersOnLoad({
+    singleLine: 1
+  });
 });
 
 // 页面滚动
@@ -153,6 +156,7 @@ function pjaxLoad() {
     "pjax:complete": function (e) {
       $("pre code").each(function (i, block) {
         hljs.highlightBlock(block);
+		hljs.lineNumbersBlock(block);
       });
       // 添加 active
       $("#tree .active").removeClass("active");
